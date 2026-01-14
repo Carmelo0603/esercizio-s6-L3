@@ -1,0 +1,16 @@
+@mixin floating($radius: 10px, $shadow-size: 10px, $shadow-color: rgba(0, 0, 0, 0.2), $border: none) {
+  border-radius: $radius;
+  box-shadow: 0px $shadow-size 20px $shadow-color;
+  border: $border;
+}
+
+@mixin grid($items-per-row: 4, $gap: 1rem) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap;
+  justify-content: center;
+
+  > * {
+    flex: 0 0 calc((100% - (#{$gap} * (#{$items-per-row} - 1))) / #{$items-per-row});
+  }
+}

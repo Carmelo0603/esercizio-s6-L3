@@ -1,0 +1,35 @@
+$sizes: (
+  "sm": 0.5rem,
+  "normal": 1rem,
+  "md": 1.5rem,
+  "lg": 2rem,
+  "xl": 3rem,
+  "xxl": 5rem,
+);
+
+$properties: (
+  "padding": "padding",
+  "margin": "margin",
+);
+
+$directions: (
+  "block": (
+    top,
+    bottom,
+  ),
+  "inline": (
+    left,
+    right,
+  ),
+);
+
+@each $prop-name, $prop-css in $properties {
+  @each $dir-name, $dir-css in $directions {
+    @each $size-name, $size-val in $sizes {
+      .#{$prop-name}-#{$dir-name}-#{$size-name} {
+        #{$prop-css}-#{nth($dir-css, 1)}: $size-val;
+        #{$prop-css}-#{nth($dir-css, 2)}: $size-val;
+      }
+    }
+  }
+}

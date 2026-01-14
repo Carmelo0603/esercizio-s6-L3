@@ -1,0 +1,17 @@
+$font-main: "Helvetica", "Arial", sans-serif;
+$font-size-base: 16px;
+$font-size-md: 1.2rem;
+$font-size-lg: 2rem;
+
+body {
+  font-family: $font-main;
+  color: $text-color;
+}
+
+@mixin title-big {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+}

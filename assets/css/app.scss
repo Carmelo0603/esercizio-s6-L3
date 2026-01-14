@@ -1,0 +1,93 @@
+@import "./partials/reset";
+@import "./partials/colors";
+@import "./partials/fonts";
+@import "./partials/mixins";
+@import "./partials/animations";
+@import "./partials/spacings";
+@import "./partials/buttons";
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  background-color: transparent;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+
+  .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  ul {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9rem;
+    color: white;
+  }
+}
+
+.hero {
+  background-color: $bg-hero;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  padding-top: 80px;
+  overflow: hidden;
+  color: white;
+
+  .hero-content {
+    max-width: 50%;
+
+    h1 {
+      @include title-big;
+    }
+
+    p {
+      font-size: $font-size-md;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 15px;
+    }
+  }
+
+  .hero-image {
+    max-width: 45%;
+
+    img {
+      @include floating(20px, 30px, rgba(0, 0, 0, 0.3), 2px solid rgba(255, 255, 255, 0.2));
+      transform: rotate(-2deg);
+    }
+  }
+}
+
+.features-grid {
+  padding: 4rem 5%;
+  background-color: #f9f9f9;
+
+  @include grid(4, 2rem);
+
+  .grid-item {
+    img {
+      @include floating(10px, 15px, rgba(0, 0, 0, 0.15));
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  }
+}
