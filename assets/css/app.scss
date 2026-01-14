@@ -1,4 +1,10 @@
 @import "./partials/reset";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 @import "./partials/colors";
 @import "./partials/fonts";
 @import "./partials/mixins";
@@ -15,6 +21,7 @@ nav {
   position: absolute;
   width: 100%;
   top: 0;
+  left: 0;
   z-index: 10;
 
   .logo {
@@ -28,19 +35,28 @@ nav {
     gap: 20px;
     font-size: 0.9rem;
     color: white;
+
+    li a {
+      text-decoration: underline;
+      color: white;
+      & :hover {
+        color: #2f075c;
+      }
+    }
   }
 }
 
 .hero {
   background-color: $bg-hero;
-  min-height: 85vh;
+  min-height: 50vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 0 5%;
   padding-top: 80px;
-  overflow: hidden;
   color: white;
+  position: relative;
+  z-index: 5;
 
   .hero-content {
     max-width: 50%;
@@ -63,18 +79,30 @@ nav {
   }
 
   .hero-image {
-    max-width: 45%;
+    position: absolute;
+    right: 5%;
+    bottom: 0;
+    width: 40%;
+    max-width: 600px;
+    transform: translateY(15%);
+    z-index: 10;
 
     img {
-      @include floating(20px, 30px, rgba(0, 0, 0, 0.3), 2px solid rgba(255, 255, 255, 0.2));
-      transform: rotate(-2deg);
+      @include floating(20px, 30px, rgba(0, 0, 0, 0.4), 2px solid rgba(255, 255, 255, 0.2));
+      width: 100%;
+      display: block;
     }
   }
 }
 
 .features-grid {
-  padding: 4rem 5%;
   background-color: #f9f9f9;
+  position: relative;
+  z-index: 1;
+  padding-top: 100px;
+  padding-bottom: 4rem;
+  padding-left: 5%;
+  padding-right: 5%;
 
   @include grid(4, 2rem);
 
@@ -84,9 +112,10 @@ nav {
       width: 100%;
       height: auto;
       transition: transform 0.3s ease;
+      display: block;
 
       &:hover {
-        transform: translateY(-5px);
+        transform: translateY(-10px);
       }
     }
   }
